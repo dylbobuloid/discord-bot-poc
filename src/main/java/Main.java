@@ -8,6 +8,7 @@ import net.dv8tion.jda.api.events.GenericEvent;
 import net.dv8tion.jda.api.events.ReadyEvent;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.EventListener;
+import net.dv8tion.jda.api.requests.GatewayIntent;
 import org.jetbrains.annotations.NotNull;
 
 import javax.security.auth.login.LoginException;
@@ -22,6 +23,7 @@ public class Main implements EventListener {
         builder.addEventListener(new Main());
         builder.getPresence().setActivity(Activity.playing("Being a dirtyson"));
 
+        builder.addEventListener(new Commands());
 
     }
 
@@ -32,20 +34,7 @@ public class Main implements EventListener {
             System.out.println("API is ready");                 // Checks if the bot is available
     }
 
-
-    public void onMessageRecieved(MessageReceivedEvent event){
-        if (event.getMessage().getContentRaw().equals("!hanz")){
-
-            event.getChannel().sendMessage("hanz dirtyson").queue();
-        }
-    }
-
-/*    public void setActivity(Activity activity){
-
-    }*/
-
-/*    public void setStatus(OnlineStatus status){                 // Setting the status of the bot
-    }*/
+    
 
 
 }
