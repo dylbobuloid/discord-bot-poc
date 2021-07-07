@@ -1,3 +1,4 @@
+import net.dv8tion.jda.api.AccountType;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.OnlineStatus;
@@ -17,10 +18,9 @@ public class Main implements EventListener {
             throws LoginException
     {
 
-        JDA jda = JDABuilder.createDefault(args[0])             //Creating instance of JDA
-                .addEventListeners(new Main()).build();
+        JDA builder = JDABuilder.createDefault(args[0]).build();
 
-        jda.addEventListener(new Main());
+        builder.addEventListener(new Main());
 
 
     }
@@ -32,10 +32,11 @@ public class Main implements EventListener {
             System.out.println("API is ready");                 // Checks if the bot is available
     }
 
-    @Override
-    public void onMessageRecieved(MessageReceivedEvent event){
-        if (msg.getContentRaw().equals("!hanz")){
 
+    public void onMessageRecieved(MessageReceivedEvent event){
+        if (event.getMessage().getContentRaw().equals("!hanz")){
+
+            event.getChannel().sendMessage("https://tenor.com/view/hasbulla-hasbullah-gif-21708537").queue();
             event.getChannel().sendMessage("hanz dirtyson").queue();
         }
     }
