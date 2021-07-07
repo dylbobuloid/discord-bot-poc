@@ -19,8 +19,8 @@ public class Main implements EventListener {
     {
 
         JDA builder = JDABuilder.createDefault(args[0]).build();
-
         builder.addEventListener(new Main());
+        builder.getPresence().setActivity(Activity.playing("Being a dirtyson"));
 
 
     }
