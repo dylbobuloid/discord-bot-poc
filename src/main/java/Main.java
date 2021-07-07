@@ -20,6 +20,8 @@ public class Main implements EventListener {
         JDA jda = JDABuilder.createDefault(args[0])             //Creating instance of JDA
                 .addEventListeners(new Main()).build();
 
+        jda.addEventListener(new Main());
+
 
     }
 
