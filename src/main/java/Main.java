@@ -34,7 +34,7 @@ public class Main implements EventListener {
     public void onMessageRecieved(MessageReceivedEvent event){
         if (msg.getContentRaw().equals("!hanz")){
 
-            event.getChannel().sendMessage("https://tenor.com/view/hasbulla-hasbullah-gif-21708537").queue();
+            event.getChannel().sendMessage("hanz dirtyson").queue();
         }
     }
 
